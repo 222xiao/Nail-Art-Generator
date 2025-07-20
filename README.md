@@ -43,7 +43,7 @@ pip install -r requirements.txt
 
 # Set API key
 ```bash
-echo "DASHSCOPE_API_KEY=your_api_key_here" > .env
+DASHSCOPE_API_KEY=your_api_key_here > .env
 ```
 
 # Run application
