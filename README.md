@@ -9,6 +9,12 @@ This AI-powered application generates professional nail art designs from natural
 * Default design template: Offer three professional nail design templates for users to choose from.
 * **Asynchronous task processing** : Perform image generation tasks in the background asynchronously to avoid page blocking.
 
+# Technology Stack
+- **Backend**: Python Flask
+- **AI Engine**: Alibaba Cloud DashScope (qwen-max [text prompt optimization processing], wanx2.1-t2i-plus [image generation])
+- **Frontend**: Bootstrap 5 + Custom CSS
+- **Asynchronous Processing**: Polling state mechanism
+
 # Clone repository
 ```bash
 git clone https://github.com/yourusername/nail-art-generator.git
