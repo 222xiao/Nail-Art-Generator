@@ -1,0 +1,5 @@
+.env
+__pycache__/
+*.pyc
+static/nail_art_outputs/
+

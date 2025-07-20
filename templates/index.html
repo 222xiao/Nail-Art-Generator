@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XXX NAIL · Create Your Artistry</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container { max-width: 600px; margin-top: 20px; }
+        .navbar-brand { font-weight: bold; color: #ff6699 !important; }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid #dee2e6;
+        }
+        .btn-primary { background-color: #ff6699; border-color: #ff6699; }
+        .btn-primary:hover { background-color: #e65c8a; border-color: #e65c8a; }
+        .title-text {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #ff6699; 
+            background: linear-gradient(to right, #ff6699, #e6b3cc);
+            -webkit-background-clip: text;
+            background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        @media (max-width: 576px) {
+            .title-text { font-size: 2rem; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">BIUBIU NAIL</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="title-text">BIUBIU NAIL · Create Your Artistry</h1>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <form method="POST" action="/">
+            <div class="mb-3">
+                <label for="design" class="form-label">Describe Your Nail Art Design (e.g., floral chic with gold embellishments)</label>
+                <textarea class="form-control" id="design" name="design" rows="4" placeholder="Enter your nail art idea"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="preset" class="form-label">Choose a Nail Style (Optional)</label>
+                <select class="form-control" id="preset" name="design">
+                    <option value="">Custom Design</option>
+                    <option value="floral chic with gold embellishments">Luxe Floral Charm</option>
+                    <option value="sparkling ombre with silver shimmer">Radiant Ombre Sparkle</option>
+                    <option value="minimalist nude with geometric accents">Sleek Geometric Glow</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Display Style</label>
+                <select class="form-control" name="display_option">
+                    <option value="1">Close-Up on Model's Hand (Professional Studio)</option>
+                    <option value="2">Tabletop Display (Still-Life Photography)</option>
+                </select>
+            </div>
+            <div class="alert alert-info mb-3">
+                Generation may take 1–3 minutes. Please be patient.
+            </div>
+            <button type="submit" class="btn btn-primary w-100" id="submit-btn">Generate Nail Art</button>
+        </form>
+    </div>
+    <footer class="footer">
+        <p>© 2025 XXX NAIL. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            document.getElementById('submit-btn').innerHTML = 'Generating...';
+            document.getElementById('submit-btn').disabled = true;
+        });
+    </script>
+</body>
+</html>

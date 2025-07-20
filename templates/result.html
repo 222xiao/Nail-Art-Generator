@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Nail Art Design - XXX NAIL</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        #loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.2rem;
+            color: #555;
+            margin: 2rem 0;
+        }
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #image {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin: 2rem 0;
+            display: none; 
+        }
+        #image.show {
+            display: block; 
+        }
+        #controls {
+            display: none;
+            margin: 1.5rem 0;
+        }
+        #controls a {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            background: #e91e63;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+        #controls a:hover {
+            background: #c2185b;
+            transform: translateY(-2px);
+        }
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            margin: 1rem 0;
+        }
+        footer {
+            position: fixed;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            #image {
+                max-width: 95%;
+            }
+            #controls a {
+                padding: 10px 20px;
+                margin: 5px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Nail Art Design</h1>
+    <div id="loading">
+        <div class="spinner"></div>
+        <span>Creating your unique nail art design...</span>
+    </div>
+    <img id="image" src="" alt="Generated Nail Art">
+    <div id="controls">
+        <a href="#" id="download_link">Download Image</a>
+        <a href="/">Design Again</a>
+    </div>
+    <p>DESIGNED BY XXX NAIL </p>
+    <footer>
+        © 2025 XXX NAIL. All rights reserved.
+    </footer>
+
+    <script>
+        function checkStatus() {
+            fetch('/status/{{ task_id }}')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Status response:', data); // 调试：打印响应数据
+                    if (data.status === 'completed' && data.image_url) {
+                        const image = document.getElementById('image');
+                        image.src = data.image_url;
+                        image.classList.add('show');
+                        document.getElementById('loading').style.display = 'none';
+                        document.getElementById('download_link').href = data.image_url;
+                        document.getElementById('download_link').setAttribute('download', 'nail_art.png');
+                        document.getElementById('controls').style.display = 'block';
+                    } else if (data.status === 'failed' || data.status === 'error') {
+                        document.getElementById('loading').innerHTML = '<span style="color: #e91e63;">Error generating image. Please try again.</span>';
+                    } else {
+                        setTimeout(checkStatus, 5000); // Check every 5 seconds
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('loading').innerHTML = '<span style="color: #e91e63;">Error checking status. Please try again.</span>';
+                    console.error('Fetch error:', error);
+                });
+        }
+        checkStatus();
+    </script>
+</body>
+</html>
