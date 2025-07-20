@@ -12,7 +12,7 @@ This AI-powered application generates professional nail art designs from natural
 # Technology Stack
 - **Backend**: Python Flask
 - **AI Engine**: Alibaba Cloud DashScope (qwen-max [text prompt optimization processing], wanx2.1-t2i-plus [image generation])
-- **Frontend**: Bootstrap 5 + Custom CSS
+- **Frontend**: JavaScript + Custom CSS
 - **Asynchronous Processing**: Polling state mechanism
 
 # Clone repository
