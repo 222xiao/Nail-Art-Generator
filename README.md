@@ -7,7 +7,7 @@ Intelligent prompt optimization: Automatically optimize user input using the Qwe
   - Close-up of the model's hand (professional photography studio effect)
   - Static display of the desktop (professional still life photography effect)
 * Default design template: Offer three professional nail design templates for users to choose from.
-* **Asynchronous** task processing: Perform image generation tasks in the background asynchronously to avoid page blocking.
+* **Asynchronous task processing** : Perform image generation tasks in the background asynchronously to avoid page blocking.
 
 # Clone repository
 ```bash
