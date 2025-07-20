@@ -2,7 +2,7 @@
 This AI-powered application generates professional nail art designs from natural language descriptions. Built with Flask and Alibaba Cloud's DashScope API, it transforms user concepts into high-quality visual designs.
 
 # Functional Features 
-Intelligent prompt optimization: Automatically optimize user input using the Qwen language model to improve the quality of image generation.
+* Intelligent prompt optimization: Automatically optimize user input using the Qwen language model to improve the quality of image generation.
 * Two display styles:
   - Close-up of the model's hand (professional photography studio effect)
   - Static display of the desktop (professional still life photography effect)
