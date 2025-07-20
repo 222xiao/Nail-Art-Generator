@@ -1,7 +1,8 @@
 # Clone repository
+```bash
 git clone https://github.com/yourusername/nail-art-generator.git
 cd nail-art-generator
-
+```
 # Create virtual environment
 python -m venv venv
 
