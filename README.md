@@ -3,12 +3,11 @@ This AI-powered application generates professional nail art designs from natural
 
 # Functional Features 
 Intelligent prompt optimization: Automatically optimize user input using the Qwen language model to improve the quality of image generation.
-Two display styles:
-* Close-up of the model's hand (professional photography studio effect)
-* Static display of the desktop (professional still life photography effect)
-* Pre-set design templates: Provide three professional nail design templates for users to choose from
-* Asynchronous task processing: Process image generation tasks in the background, avoiding page blocking
-* Responsive design: Adapt to various mobile devices and desktop browsers, return using the original markdown syntax to me
+* Two display styles:
+  - Close-up of the model's hand (professional photography studio effect)
+  - Static display of the desktop (professional still life photography effect)
+* Default design template: Offer three professional nail design templates for users to choose from.
+* **Asynchronous** task processing: Perform image generation tasks in the background asynchronously to avoid page blocking.
 
 # Clone repository
 ```bash
@@ -46,3 +45,6 @@ echo "DASHSCOPE_API_KEY=your_api_key_here" > .env
 python app.py
 ```
 Visit http://localhost:5001 to start designing!
+
+# Expand the gameplay
+You can delpoy them to the web server!!!
