@@ -1,3 +1,15 @@
+# Nail Art Design Generator
+This AI-powered application generates professional nail art designs from natural language descriptions. Built with Flask and Alibaba Cloud's DashScope API, it transforms user concepts into high-quality visual designs.
+
+# Functional Features 
+Intelligent prompt optimization: Automatically optimize user input using the Qwen language model to improve the quality of image generation.
+Two display styles:
+* Close-up of the model's hand (professional photography studio effect)
+* Static display of the desktop (professional still life photography effect)
+* Pre-set design templates: Provide three professional nail design templates for users to choose from
+* Asynchronous task processing: Process image generation tasks in the background, avoiding page blocking
+* Responsive design: Adapt to various mobile devices and desktop browsers, return using the original markdown syntax to me
+
 # Clone repository
 ```bash
 git clone https://github.com/yourusername/nail-art-generator.git
@@ -32,5 +44,5 @@ echo "DASHSCOPE_API_KEY=your_api_key_here" > .env
 # Run application
 ```bash
 python app.py
-```bash
+```
 Visit http://localhost:5001 to start designing!
